@@ -1,6 +1,6 @@
 {
   "name": "spacexinterop.client",
-  "version": "0.2.2-beta",
+  "version": "0.2.3-beta",
   "scripts": {
     "ng": "ng",
     "start": "node -e \"process.env.SSL_CERT_FILE=require('path').join(process.env.HOME || '', '.aspnet', 'https', process.env.npm_package_name+'.pem'); process.env.SSL_KEY_FILE=require('path').join(process.env.HOME || '', '.aspnet', 'https', process.env.npm_package_name+'.key');\" && ng serve --ssl --ssl-cert $SSL_CERT_FILE --ssl-key $SSL_KEY_FILE --host=localhost",

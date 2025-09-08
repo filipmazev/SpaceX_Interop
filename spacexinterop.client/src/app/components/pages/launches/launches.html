@@ -1,20 +1,23 @@
 <section class="fade-in-anim general-section">
     <div class="launches-header">
-        <div class="nav-link" (click)="showUpcomingOnly = false; pageIndex.set(0); paginator.firstPage(); fetchData();"
+        <div class="nav-link" (click)="showUpcomingOnly = false; saveState(); pageIndex.set(0); paginator.firstPage(); fetchData();"
             [ngClass]="{'route-active': !showUpcomingOnly}"> Past </div>
-        <div class="nav-link" (click)="showUpcomingOnly = true; pageIndex.set(0); paginator.firstPage(); fetchData();"
+        <div class="nav-link" (click)="showUpcomingOnly = true; saveState(); pageIndex.set(0); paginator.firstPage(); fetchData();"
             [ngClass]="{'route-active': showUpcomingOnly}"> Upcoming </div>
     </div>
 
     <div class="table-controls">
         <mat-form-field appearance="outline">
             <mat-label>Search </mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="e.g. Falcon" />
+            <input [value]="searchText" matInput (keyup)="applyFilter($event)" placeholder="e.g. Falcon" />
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" [ngClass]="{
+            'fade-in-anim': !searchText || searchText.length === 0,
+            'fade-out-anim disabled-input': searchText && searchText.length > 0
+        }">
             <mat-label>Sort</mat-label>
-            <mat-select [(value)]="sortOrder" (selectionChange)="pageIndex.set(0); paginator.firstPage(); fetchData();">
+            <mat-select [(value)]="sortOrder" (selectionChange)="saveState(); pageIndex.set(0); paginator.firstPage(); fetchData();">
                 <mat-option [value]="SortDirectionEnum.Descending">Newest</mat-option>
                 <mat-option [value]="SortDirectionEnum.Ascending">Oldest</mat-option>
             </mat-select>

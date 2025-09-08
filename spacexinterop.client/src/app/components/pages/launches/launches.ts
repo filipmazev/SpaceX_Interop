@@ -17,8 +17,10 @@ import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { debounceTime, distinctUntilChanged, Subject, takeUntil } from 'rxjs';
 import { WindowDimensionsService } from '../../../shared/services/core/ui/window-dimension.service';
 import { WindowDimensions } from '../../../shared/interfaces/services/window-dimensions.interface';
-import { BASE_DEBOUNCE_TIME_IN_MS } from '../../../shared/constants/common.constants';
+import { BASE_DEBOUNCE_TIME_IN_MS, EMPTY_STRING } from '../../../shared/constants/common.constants';
 import { Router } from '@angular/router';
+import { TableStateService } from '../../../shared/services/core/ui/table-state.service';
+import { ITableState } from '../../../shared/interfaces/ui/itable-state.interface';
 
 @Component({
   selector: 'app-launches',
@@ -46,10 +48,12 @@ import { Router } from '@angular/router';
   styleUrl: './launches.scss'
 })
 export class Launches extends BaseMatTableComponent<LaunchRow> implements OnInit {
+  protected tableId: string = 'launches_table';
+
   protected displayedColumns: string[] = ['icon', 'name', 'rocketName', 'launchpadName', 'launchDateUtc', 'links', 'status', 'actions'];
 
   protected SortDirectionEnum = SortDirectionEnum;
-  protected searchText?: string;
+  protected searchText: string = EMPTY_STRING;
 
   protected showUpcomingOnly: boolean = false;
   protected sortOrder: SortDirectionEnum = SortDirectionEnum.Descending;
@@ -59,25 +63,22 @@ export class Launches extends BaseMatTableComponent<LaunchRow> implements OnInit
 
   protected windowDimensions: WindowDimensions = {} as WindowDimensions;
 
-  private unsubscribe$ = new Subject<void>();
   private searchTextChanged$ = new Subject<string>();
 
   constructor(
     private spaceXService: SpaceXService,
     private windowDimensionsService: WindowDimensionsService,
-    private router: Router
+    private router: Router,
+    tableStateService: TableStateService
   ) {
-    super();
+    super(tableStateService);
   }
 
   public ngOnInit(): void {
     this.createSubscriptions();
   }
 
-  public ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-
+  public override onDestroy(): void {
     this.searchTextChanged$.complete();
     this.searchTextChanged$.unsubscribe();
   }
@@ -127,6 +128,21 @@ export class Launches extends BaseMatTableComponent<LaunchRow> implements OnInit
     });
   }
 
+  protected override restoreAdditionalState(state: ITableState) {
+    this.searchText = state.searchText ?? EMPTY_STRING;
+    this.sortOrder = state.sortOrder ?? SortDirectionEnum.Descending;
+    this.showUpcomingOnly = state.showUpcomingOnly ?? false;
+  }
+
+  protected override saveState(extra: Partial<ITableState> = {}) {
+    super.saveState({
+      searchText: this.searchText,
+      sortOrder: this.sortOrder,
+      showUpcomingOnly: this.showUpcomingOnly,
+      ...extra
+    });
+  }
+
   private resolveRowsFromData(data: LaunchRowResponse[]): LaunchRow[] {
     return data.map(item => {
       const formattedDate = new Date(item.launchDateUtc).toLocaleDateString("en-US", {
@@ -163,6 +179,8 @@ export class Launches extends BaseMatTableComponent<LaunchRow> implements OnInit
 
   protected applyFilter(event: Event) {
     const value = (event.target as HTMLInputElement).value.trim();
+    this.searchText = value;
+    this.saveState(); 
     this.searchTextChanged$.next(value);
   }
 
