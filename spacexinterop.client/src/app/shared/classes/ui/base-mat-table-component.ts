@@ -112,6 +112,7 @@ export abstract class BaseMatTableComponent<TData extends object = any> implemen
             this.pageSize.set(newPageSize);
             this.pageIndex.set(0);
             this.paginator.firstPage();
+            this.saveState();
         } else {
             this.pageIndex.set(newPageIndex);
         }

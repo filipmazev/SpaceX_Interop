@@ -1,7 +1,7 @@
-﻿using spacexinterop.api._Common.Utility.Factories.Interfaces;
+﻿using spacexinterop.api._Common.Utility.Validators.Interfaces;
+using spacexinterop.api._Common.Utility.Factories.Interfaces;
 using spacexinterop.api._Common.Domain.Data.Errors;
 using spacexinterop.api._Common.Domain.Data.Result;
-using spacexinterop.api._Common.Utility.Validators;
 using spacexinterop.api.Services.Interfaces;
 using spacexinterop.api.Data.Response;
 using spacexinterop.api.Data.Request;

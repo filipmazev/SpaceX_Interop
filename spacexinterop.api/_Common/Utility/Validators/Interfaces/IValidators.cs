@@ -1,4 +1,4 @@
-﻿namespace spacexinterop.api._Common.Utility.Validators;
+﻿namespace spacexinterop.api._Common.Utility.Validators.Interfaces;
 
 public interface IValidators
 {

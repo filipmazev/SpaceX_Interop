@@ -1,4 +1,5 @@
-﻿using spacexinterop.api._Common.Utility.Factories.Interfaces;
+﻿using spacexinterop.api._Common.Utility.Validators.Interfaces;
+using spacexinterop.api._Common.Utility.Factories.Interfaces;
 using spacexinterop.api._Common.Utility.Clients.Interfaces;
 using spacexinterop.api._Common.Utility.Mapper.Interfaces;
 using spacexinterop.api._Common.Utility.Validators;
@@ -14,7 +15,7 @@ namespace spacexinterop.api.Infrastructure;
 
 public static class DependenciesBuilder
 {
-    public static IServiceCollection AddDependencies(this IServiceCollection services)
+    public static void AddDependencies(this IServiceCollection services)
     {
         //#region Infrastructure
 
@@ -43,7 +44,5 @@ public static class DependenciesBuilder
         services.AddScoped<ISpaceXLaunchesRepository, SpaceXLaunchesRepository>();
 
         //#endregion
-
-        return services;
     }
 }
