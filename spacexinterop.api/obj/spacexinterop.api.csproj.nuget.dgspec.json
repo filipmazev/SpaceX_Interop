@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/filipmazev/Documents/Code/main/SpaceX_Interop/spacexinterop.api/spacexinterop.api.csproj": {}
+    "/Users/filipmazev/Documents/Code/Main/SpaceX_Interop/spacexinterop.api/spacexinterop.api.csproj": {}
   },
   "projects": {
-    "/Users/filipmazev/Documents/Code/main/SpaceX_Interop/spacexinterop.api/spacexinterop.api.csproj": {
+    "/Users/filipmazev/Documents/Code/Main/SpaceX_Interop/spacexinterop.api/spacexinterop.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/filipmazev/Documents/Code/main/SpaceX_Interop/spacexinterop.api/spacexinterop.api.csproj",
+        "projectUniqueName": "/Users/filipmazev/Documents/Code/Main/SpaceX_Interop/spacexinterop.api/spacexinterop.api.csproj",
         "projectName": "spacexinterop.api",
-        "projectPath": "/Users/filipmazev/Documents/Code/main/SpaceX_Interop/spacexinterop.api/spacexinterop.api.csproj",
+        "projectPath": "/Users/filipmazev/Documents/Code/Main/SpaceX_Interop/spacexinterop.api/spacexinterop.api.csproj",
         "packagesPath": "/Users/filipmazev/.nuget/packages/",
-        "outputPath": "/Users/filipmazev/Documents/Code/main/SpaceX_Interop/spacexinterop.api/obj/",
+        "outputPath": "/Users/filipmazev/Documents/Code/Main/SpaceX_Interop/spacexinterop.api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/filipmazev/.nuget/NuGet/NuGet.Config"
@@ -38,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -104,6 +104,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[9.0.11, 9.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[9.0.11, 9.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -112,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

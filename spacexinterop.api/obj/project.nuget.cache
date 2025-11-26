@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0AozXH6ENak=",
+  "dgSpecHash": "75cmht6Si14=",
   "success": true,
   "projectFilePath": "/Users/filipmazev/Documents/Code/main/SpaceX_Interop/spacexinterop.api/spacexinterop.api.csproj",
   "expectedPackageFiles": [
@@ -92,7 +92,10 @@
     "/Users/filipmazev/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
     "/Users/filipmazev/.nuget/packages/system.text.json/9.0.8/system.text.json.9.0.8.nupkg.sha512",
     "/Users/filipmazev/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
-    "/Users/filipmazev/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512"
+    "/Users/filipmazev/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
+    "/Users/filipmazev/.nuget/packages/microsoft.netcore.app.ref/9.0.11/microsoft.netcore.app.ref.9.0.11.nupkg.sha512",
+    "/Users/filipmazev/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.11/microsoft.aspnetcore.app.ref.9.0.11.nupkg.sha512",
+    "/Users/filipmazev/.nuget/packages/microsoft.netcore.app.host.osx-arm64/9.0.11/microsoft.netcore.app.host.osx-arm64.9.0.11.nupkg.sha512"
   ],
   "logs": []
 }

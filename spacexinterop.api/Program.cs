@@ -195,7 +195,7 @@ if (app.Environment.IsDevelopment())
 
     app.MapScalarApiReference(options =>
     {
-        options.WithTitle("Hornet Security | SpaceX Interop API Documentation");
+        options.WithTitle("SpaceX Interop API Documentation");
         options.WithTheme(ScalarTheme.BluePlanet);
         options.WithSidebar();
     });
